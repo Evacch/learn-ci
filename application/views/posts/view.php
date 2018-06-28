@@ -26,16 +26,6 @@
     
     <hr>
     
-    <h3>Comments</h3>
-    <?php if(comments): ?>
-        <?php foreach($comments as $comment):?>
-            <h5><?php echo $comment['body']; ?>[by <?php echo $comment[]?>]</h5>
-            
-        <?php endforeach;?>
-        <?php else: ?>
-        <p>No Comment To Display</p>
-    <hr>
-    
     <h3>Add Comment</h3>
     <?php echo form_open('comments/create/'.$post['id']);?>
     <div class="form-group">
