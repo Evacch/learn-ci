@@ -19,9 +19,13 @@
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo base_url();?>posts">Blog</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="<?php echo base_url();?>categories">Categories</a>
+                </li>
               </ul>
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="<?php echo base_url();?>posts/create">Create Post</a></li>
+                <li class="nav-item"><a class="nav-link" href="<?php echo base_url();?>categories/create">Create Category</a></li>                
             </ul>
           </nav>
         </div>

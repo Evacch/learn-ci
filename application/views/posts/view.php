@@ -21,3 +21,77 @@
         );
         echo form_submit($delBtn_attr);
     ?>
+    
+    <?php echo form_close(); ?>
+    
+    <hr>
+    
+    <h3>Comments</h3>
+    <?php if(comments): ?>
+        <?php foreach($comments as $comment):?>
+            <h5><?php echo $comment['body']; ?>[by <?php echo $comment[]?>]</h5>
+            
+        <?php endforeach;?>
+        <?php else: ?>
+        <p>No Comment To Display</p>
+    <hr>
+    
+    <h3>Add Comment</h3>
+    <?php echo form_open('comments/create/'.$post['id']);?>
+    <div class="form-group">
+        <?php echo form_label('Name'); ?>
+        <?php 
+            $name_attr = array(
+                "class" => "form-control",
+                "name" => "name",
+                "type" => "text"
+            );
+            
+            echo form_input($name_attr);
+        ?>
+        
+        <?php echo form_error('name'); ?>
+    </div>
+    
+    <div class="form-group">
+        <?php echo form_label('Email'); ?>
+        <?php 
+            $email_attr = array(
+                "class" => "form-control",
+                "name" => "email",
+                "type" => "email"
+            );
+            
+            echo form_input($email_attr);
+        ?>
+        
+        <?php echo form_error('email'); ?>
+    </div>
+    
+    <div class="form-group">
+        <?php echo form_label('Body'); ?>
+        <?php 
+            $body_attr = array(
+                "class" => "form-control",
+                "name" => "body",
+                "placeholder" => "Write your comment here.."
+            );
+            
+            echo form_textarea($body_attr);
+        ?>
+        
+        <?php echo form_error('body'); ?>
+    </div>
+    
+    <input type="hidden" name="slug" value="<?php echo $post['id']?>"/>
+    
+    <?php
+        $submitBtn_attr = array(
+            'class' =>  'btn btn-success',
+            'value' => 'Submit',
+            'name' => 'submit'
+        );
+        echo form_submit($submitBtn_attr);
+    ?>
+    
+<?php echo form_close(); ?>

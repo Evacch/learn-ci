@@ -11,6 +11,7 @@ class Posts extends CI_Controller {
         $this->load->view('posts/'.$page, $data);
         $this->load->view('templates/footer');
     }
+    
     public function index(){
         $data['title'] = 'Latest Posts';
         $data['posts'] = $this->post_model->get_posts();
@@ -19,6 +20,8 @@ class Posts extends CI_Controller {
     
     public function view($slug = NULL){
         $data['post'] = $this->post_model->get_posts($slug);
+        $post_id = $data['post']['id'];
+        $data['comments'] = $this->comment_model->get_comments();
         
         if(empty($data['post'])){
             show_404();
